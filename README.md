@@ -5,6 +5,8 @@ This is a project bootstrapped
 First, run the development server:
 
 ```bash
+sudo cp .env.example .env
+
 npm install
 npm run dev
 # or
