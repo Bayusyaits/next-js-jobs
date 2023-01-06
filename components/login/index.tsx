@@ -20,7 +20,7 @@ const LoginContainer = (props: any) => {
             setLogin(true)
             setTimeout(() => {
                 router.push('/')
-            }, 3000)
+            }, 10000)
         }
     } 
     const onFailure = (e: any, val: any) => {
@@ -30,7 +30,7 @@ const LoginContainer = (props: any) => {
             setLogin(true)
             setTimeout(() => {
                 router.push('/')
-            }, 3000)
+            }, 10000)
         }
     } 
     const handler = {
