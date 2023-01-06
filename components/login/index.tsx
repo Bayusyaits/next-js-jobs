@@ -27,8 +27,8 @@ const LoginContainer = (props: any) => {
     const onFailure = (e: any, val: any) => {
         console.log('error', e)
         let c = count
-        setMessage(val.message)
         if (val && val.message && count > 0) {
+            setMessage(val.message)
             setLogin(true)
             setTimeout(() => {
                 router.push('/')
