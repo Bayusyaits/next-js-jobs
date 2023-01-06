@@ -1,0 +1,17 @@
+.preText {
+    text-align: right;
+    white-space: pre;
+}
+
+.nowrapText {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .nowrapText {
+        max-width: 40px;
+    }
+}

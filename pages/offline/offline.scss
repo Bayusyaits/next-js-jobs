@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+.offline-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .offline-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $grey-50;
+    .offline-message {
+      margin: auto;
+      text-align: center;
+      .status {
+        font-size: 100px;
+        margin-bottom: $alone;
+      }
+      .message {
+        background-color: unset;
+        margin-bottom: $alone;
+      }
+    }
+  }
+}
