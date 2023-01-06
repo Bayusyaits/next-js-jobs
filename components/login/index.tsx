@@ -11,6 +11,7 @@ const LoginView = dynamic(
   
 const LoginContainer = (props: any) => {
     const router  = useRouter()
+    const [count, setCount] = useState<number>(0)
     let setLogin = useAuth((state: any) => state.login.setLogin)
     const [message, setMessage] = useState<string>('')
     const onSuccess = (e: any, val: any) => {
@@ -25,13 +26,16 @@ const LoginContainer = (props: any) => {
     } 
     const onFailure = (e: any, val: any) => {
         console.log('error', e)
-        if (val && val.message) {
-            setMessage(val.message)
+        let c = count
+        setMessage(val.message)
+        if (val && val.message && count > 0) {
             setLogin(true)
             setTimeout(() => {
                 router.push('/')
             }, 10000)
         }
+        c++
+        setCount(c)
     } 
     const handler = {
         ...props,
