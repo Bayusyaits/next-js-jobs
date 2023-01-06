@@ -1,10 +1,10 @@
 import React from 'react'
-
+import Login from 'components/login'
 function LoginView() {
   return (
-    <div className="container mt-3">
-      Login
-    </div>
+    <>
+      <Login />
+    </>
   )
 }
 

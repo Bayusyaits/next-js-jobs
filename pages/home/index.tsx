@@ -44,7 +44,6 @@ export default function HomeContainer() {
       full_time,
       page: 1
     }
-    console.log('q', q)
     getData(q)
   }
   useEffect(() => {

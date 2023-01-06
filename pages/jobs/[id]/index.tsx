@@ -24,7 +24,6 @@ export default function JobsIdContainer() {
     isLoading
   } = jobs
   useEffect(() => {
-    console.log('id', id)
     if (!isLoading && query && id) {
       setJobsLoading()
       getJobsDetail(id)

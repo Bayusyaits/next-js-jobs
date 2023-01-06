@@ -20,7 +20,7 @@ import {
 import {
   ID_POSITIONS
 } from 'constants/id'
-export interface CampaignFieldState {
+export interface PositionsFieldState {
   operator: string | null
   amount: number
   maxAmount: number
@@ -34,7 +34,7 @@ export interface CampaignFieldState {
   refCode?: string
   product: []
 }
-export interface CampaignState {
+export interface PositionsState {
   id: string
   response: {
     id: string
@@ -66,12 +66,12 @@ export const POSITIONS_JOBS_INIT_FIELD = {
   title: '',
   product: []
 }
-export const INITIAL_STATE: CampaignState = {
+export const INITIAL_STATE: PositionsState = {
   id: ID_POSITIONS,
   response: {
     id: '',
     message: '',
-    title: 'Campaign Notification',
+    title: 'Positions Notification',
     code: 0
   },
   field: {
@@ -113,7 +113,7 @@ let useJobsSlice: any = (set: any, get: any) => ({
       set({jobs: []}, false, POSITIONS_RESET_JOBS)
     },
     getJobs: async (
-      payload?: CampaignState, 
+      payload?: PositionsState, 
       isLoad: boolean = false) => {
       const id = ID_POSITIONS
       const {jobs: {
@@ -171,7 +171,6 @@ let useJobsSlice: any = (set: any, get: any) => ({
             if (state.jobs && state.jobs.isLoading) {
               state.jobs.isLoading = false
             }
-            console.log('data', data)
             state.jobs.field = data         
           }), 
           false, 
@@ -193,12 +192,12 @@ let useJobsSlice: any = (set: any, get: any) => ({
       }
     }
   })
-let useCampaign: any = (set: any, get: any) => ({
+let usePositions: any = (set: any, get: any) => ({
   jobs: useJobsSlice(set, get)
 });
 
 
-useCampaign = devtools<any>(log(useCampaign), 
+usePositions = devtools<any>(log(usePositions), 
   { 
     enabled: process.env.NODE_ENV === 'development' 
   }
@@ -216,9 +215,9 @@ const limitObject = (state: any, arr: string[] =
   }
 }
 
-useCampaign = persist(useCampaign, {
+usePositions = persist(usePositions, {
   version: 1, // a migration will be triggered if the version in the storage mismatches this one
-  name: 'campaign',
+  name: 'positions',
   getStorage: () => localStorage,
   partialize: (state: any) => ({ 
     jobs: limitObject(state.jobs)
@@ -226,4 +225,4 @@ useCampaign = persist(useCampaign, {
   merge: (persistedState, currentState) =>
     lodashMerge(currentState, persistedState)
 })
-export default create(useCampaign);
+export default create(usePositions);

@@ -4,7 +4,6 @@ import JobsDetail from 'components/jobs/detail'
 function JobsIdView({
   field
 }: any) {
-  console.log('field', field)
   return (
     <div className="container mt-2">
       <JobsBreadcrumb />
